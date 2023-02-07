@@ -1,6 +1,7 @@
 #include <sstream>
 #include "SplashState.hpp"
 #include "MainMenuState.hpp"
+#include "GameState.hpp"
 #include "DEFINITIONS.hpp"
 
 #include <iostream>
@@ -37,7 +38,7 @@ namespace hcc
 		if (this->m_Clock.getElapsedTime().asSeconds() > SPLASH_STATE_SHOW_TIME)
 		{
 			// Switch To Main Menu
-			this->m_Data->machine.AddState(StateRef(new MainMenuState(m_Data)), true);
+			this->m_Data->machine.AddState(StateRef(new GameState(m_Data)), true);
 		}
 	}
 
