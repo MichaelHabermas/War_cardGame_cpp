@@ -2,10 +2,10 @@
 
 namespace hcc
 {
-    Card::Card(int value, sf::Sprite face) : 
+    Card::Card(int value, sf::Sprite face, sf::Sprite back) : 
         m_value(value),
         m_face(face),
-        m_back(face), // fix me
+        m_back(back),
         m_isFaceUp(false)
     {
         

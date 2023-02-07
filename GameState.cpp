@@ -21,38 +21,20 @@ namespace hcc
     {
         std::cout << "Working" << std::endl;
         std::string filename = "./Resources/Textures/basicCards/";
-        for (auto letter : "HDSC")
+        this->m_Data->assets.LoadTexture("Card_Back", filename + "back_card.png");
+
+        for (auto letter : { 'H', 'D', 'S', 'C' })
         {
             for (int num = 1; num < 14; num ++)
             {
                 std::string marker = std::to_string(num) + letter;
-
-                if (letter)
-                {
-                    std::cout << marker << std::endl;
-                    this->m_Data->assets.LoadTexture("Card_" + marker, filename + marker + "_card.png");
-                }
+                this->m_Data->assets.LoadTexture("Card_" + marker, filename + marker + "_card.png");
             }
         }
 
         GenerateDeck();
-
-        for (auto card : m_deck)
-        {
-            std::cout << card.value() << std::endl;
-        }
         ShuffleDeck();
         DealCards();
-
-        for (auto card : m_player1_hand)
-        {
-            std::cout << card.value() << std::endl;
-        }
-        std::cout << " - - - - - " << std::endl;
-        for (auto card : m_player2_hand)
-        {
-            std::cout << card.value() << std::endl;
-        }
     };
 
     void GameState::HandleInput()
@@ -86,20 +68,20 @@ namespace hcc
     void GameState::GenerateDeck()
     {
         std::cout << "in GenerateDeck" << std::endl;
+        
         int idx = 1;
         std::string filename = "";
-        for (auto letter : "HDSC")
+        sf::Sprite backSprite = sf::Sprite();
+        backSprite.setTexture(this->m_Data->assets.GetTexture("Card_Back"));
+
+        for (auto letter : { 'H', 'D', 'S', 'C' })
         {
             for (int num = 1; num < 14; num ++)
             {
-                if (!letter) {
-                    break;
-                }
                 std::string marker = std::to_string(num) + letter;
                 sf::Sprite newSprite = sf::Sprite();
-                std::cout << marker << std::endl;
                 newSprite.setTexture(this->m_Data->assets.GetTexture("Card_" + marker));
-                m_deck.emplace_back(Card(num, newSprite));
+                m_deck.emplace_back(Card(num, newSprite, backSprite));
             }
         }
     };

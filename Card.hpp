@@ -7,7 +7,7 @@ namespace hcc
     class Card
     {
         public:
-            Card(int m_value, sf::Sprite m_face);
+            Card(int m_value, sf::Sprite m_face, sf::Sprite back);
 
             int value() const;
 
