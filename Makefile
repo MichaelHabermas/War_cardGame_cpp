@@ -3,3 +3,6 @@ app: main.cpp Game.cpp InputManager.cpp StateMachine.cpp AssetManager.cpp Splash
 
 clean: ./app
 	rm ./app
+
+toolchain:
+	brew install sfml

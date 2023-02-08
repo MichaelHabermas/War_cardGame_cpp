@@ -6,16 +6,20 @@ as you add States you must update the Makefile
 
 ### Pre-Req Libraries
 
-homebrew
-sfml
-etc.
+Mac: homebrew
 
-````bash
-brew install sfml
+#### Install Libraries
+
+In terminal, enter the below:
+
+```bash
+make toolchain
 ```
+
+#### Run Game
 
 In terminal, enter the below:
 
 ```bash
 make app && ./app
-````
+```
