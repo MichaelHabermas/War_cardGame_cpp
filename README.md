@@ -4,10 +4,18 @@ as you add States you must update the Makefile
 
 ## To Run Game
 
-If all req libraries are installed,
+### Pre-Req Libraries
+
+homebrew
+sfml
+etc.
+
+````bash
+brew install sfml
+```
 
 In terminal, enter the below:
 
 ```bash
 make app && ./app
-```
+````
