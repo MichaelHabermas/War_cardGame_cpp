@@ -6,7 +6,7 @@ as you add States you must update the Makefile
 
 ### Pre-Req Libraries
 
-Mac: homebrew
+Mac & Linux: homebrew
 
 #### Install Libraries
 
