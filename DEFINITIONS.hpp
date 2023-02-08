@@ -10,6 +10,8 @@
 #define MAIN_MENU_TITLE_FILEPATH "Resources/Textures/game_title.png"
 #define MAIN_MENU_PLAY_BUTTON "Resources/Textures/play_button.jpg"
 
+#define Card_Back "Resources/Textures/basicCards/back_card.png"
+
 #define Card_H1 "1H_card.png"
 #define Card_H2 "2H_card.png"
 #define Card_H3 "3H_card.png"

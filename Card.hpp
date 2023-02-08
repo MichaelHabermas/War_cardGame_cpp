@@ -8,7 +8,8 @@ namespace hcc
     {
         public:
             Card(int m_value, sf::Sprite m_face, sf::Sprite back);
-
+            Card();
+            
             int value() const;
 
             bool isFaceUp() const;

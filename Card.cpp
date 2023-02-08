@@ -10,6 +10,10 @@ namespace hcc
     {
         
     };
+    Card::Card()
+    {
+
+    };
 
     int Card::value() const
     {
