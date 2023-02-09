@@ -46,6 +46,5 @@ namespace hcc
             sf::Sprite m_player2_deck_sprite;
             sf::Sprite m_player1_card_sprite;
             sf::Sprite m_player2_card_sprite;
-
     };
 }

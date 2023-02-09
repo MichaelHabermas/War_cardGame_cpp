@@ -27,9 +27,14 @@ namespace hcc
     void GameState::Init()
     {
         std::cout << "Working" << std::endl;
-        std::string filename = "./Resources/Textures/basicCards/";
-        this->m_Data->assets.LoadTexture("Card_Back", filename + "back_card.png");
+        
+        this->m_Data->assets.LoadTexture("Card_Back", Card_Back);
 
+        this->m_Data->assets.LoadTexture("Background1", Background1);
+        m_Background.setTexture(this->m_Data->assets.GetTexture("Background1"));
+
+        std::string filename = "./Resources/Textures/basicCards/";
+        
         for (auto letter : { 'H', 'D', 'S', 'C' })
         {
             for (int num = 1; num < 14; num ++)
@@ -117,6 +122,7 @@ namespace hcc
     {
         
 		this->m_Data->window.clear(sf::Color::Red);
+		this->m_Data->window.draw( this->m_Background );
 
         this->m_Data->window.draw(this->m_player1_card_sprite);
         this->m_Data->window.draw(this->m_player2_card_sprite);

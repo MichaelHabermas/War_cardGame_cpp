@@ -1,5 +1,6 @@
 #include <sstream>
 #include "MainMenuState.hpp"
+#include "GameState.hpp"
 #include "DEFINITIONS.hpp"
 
 #include <iostream>
@@ -39,7 +40,7 @@ namespace hcc
 			if (this->m_Data->input.IsSpriteClicked(this->m_PlayButton, sf::Mouse::Left, this->m_Data->window))
 			{
 				// Switch To Game State
-				std::cout << "add a game state to play the game!" << std::endl;
+			this->m_Data->machine.AddState(StateRef(new GameState(m_Data)), true);
 			}
 		}
 	}
