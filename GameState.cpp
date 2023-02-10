@@ -7,6 +7,7 @@
 #include <string>
 
 #include "GameState.hpp"
+#include "WinGameState.hpp"
 #include "Card.hpp"
 #include "DEFINITIONS.hpp"
 
@@ -98,6 +99,11 @@ namespace hcc
 			{
 				this->m_Data->window.close();
 			}
+            
+            if (this->m_player1_hand.empty() && this->m_player2_hand.empty())
+            {
+                this->m_isGameOver = true;
+            }
 
             if (this->m_Data->input.IsSpriteClicked(this->m_player1_deck_sprite, sf::Mouse::Left, this->m_Data->window))
             {
@@ -105,17 +111,23 @@ namespace hcc
                 {
                     PlayHand();
                 }
-                else
-                {
-                    std::cout << "Game Over" << std::endl;
-                }
             }
 		}
     };
 
     void GameState::Update(float dt)
     {
-        
+        if  (this->m_isGameOver)
+        {
+            if (this->m_p1_score > this->m_p2_score)
+            {
+                this->m_Data->machine.AddState(StateRef(new WinGameState(m_Data)), true);
+            }
+            else {
+                std::cout << "Game Over" << std::endl;
+                this->m_Data->machine.AddState(StateRef(new WinGameState(m_Data)), true);
+            }
+        }
     };
 
     void GameState::Draw(float dt)
